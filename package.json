@@ -1,0 +1,32 @@
+{
+  "name": "es2015-module-starter",
+  "version": "0.1.0",
+  "description": "A boilerplate for developing es2015+ module quickly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Alex1990/es2015-module-starter.git"
+  },
+  "keywords": [
+    "es2015",
+    "stater",
+    "boilerplate"
+  ],
+  "author": "Alex Chao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex1990/es2015-module-starter/issues"
+  },
+  "homepage": "https://github.com/Alex1990/es2015-module-starter#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb-base": "^4.0.2",
+    "eslint-plugin-import": "^1.11.1"
+  }
+}
