@@ -1,2 +1,3 @@
-# es2015-module-starter
-A boilerplate for developing es2015+ module quickly
+# select-html
+
+Generate the `<select>` and `<options>`s html.

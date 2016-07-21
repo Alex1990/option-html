@@ -1,26 +1,21 @@
 {
-  "name": "es2015-module-starter",
+  "name": "select-html",
   "version": "0.1.0",
-  "description": "A boilerplate for developing es2015+ module quickly",
+  "description": "Generate select and options html",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Alex1990/es2015-module-starter.git"
+    "url": "git+ssh://git@github.com/Alex1990/select-html.git"
   },
   "keywords": [
-    "es2015",
-    "stater",
-    "boilerplate"
+    "select",
+    "option"
   ],
   "author": "Alex Chao",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Alex1990/es2015-module-starter/issues"
-  },
-  "homepage": "https://github.com/Alex1990/es2015-module-starter#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
