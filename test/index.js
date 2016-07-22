@@ -11,13 +11,13 @@ describe('Select html', () => {
 
   it('should return a select html string with the specified attributes', () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'language',
       },
     });
     const expectedHtml1 = '<select name="language"></select>';
     const html2 = selectHtml({
-      props: {
+      attrs: {
         id: 'language',
         name: 'language',
         multiple: true,
@@ -37,7 +37,7 @@ describe('Select html', () => {
 describe('Basic options html', () => {
   it('should return the expected html string', () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -67,7 +67,7 @@ describe('Basic options html', () => {
   it(`should return the expected html string when \`settings.options\` is
     an array of objects`, () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [{
@@ -90,7 +90,7 @@ describe('Basic options html', () => {
   it(`should return the expected html string when \`settings.options\` is an array of
      \`[key, value]\` pairs`, () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [
@@ -109,14 +109,14 @@ describe('Basic options html', () => {
 
   it('should return the selected option html string by `settings.selectedValue`', () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
       selectedValue: [1],
     });
     const html2 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -141,14 +141,14 @@ describe('Basic options html', () => {
 
   it('should return the selected option html string by `settings.selectedText`', () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
       selectedText: [1],
     });
     const html2 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -173,14 +173,14 @@ describe('Basic options html', () => {
 
   it('should return the disabled option html string by `settings.disabledValue`', () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
       disabledValue: [1],
     });
     const html2 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -205,14 +205,14 @@ describe('Basic options html', () => {
 
   it('should return the disabled option html string by `settings.disabledText`', () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
       disabledText: [1],
     });
     const html2 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -238,7 +238,7 @@ describe('Basic options html', () => {
   it(`should return the selected and disabled option html string by \`settings.selectedValue\`
      and \`settings.disabledValue\``, () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -258,7 +258,7 @@ describe('Basic options html', () => {
   it(`should return the selected and disabled option html string by \`settings.selectedText\`
      and \`settings.disabledText\``, () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -278,14 +278,14 @@ describe('Basic options html', () => {
   it(`should return the selected option when \`settings.selectedValue\` is a string
     or number`, () => {
     const html1 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
       selectedValue: 1,
     });
     const html2 = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],
@@ -306,7 +306,7 @@ describe('Basic options html', () => {
 
   it('should return the selected option when `settings.selectedValue` is a function', () => {
     const html = selectHtml({
-      props: {
+      attrs: {
         name: 'num',
       },
       options: [0, 1, 2],

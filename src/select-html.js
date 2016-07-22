@@ -6,16 +6,16 @@ import {
   includes,
 } from './util';
 
-function getPropsHtml(props) {
+function getAttrsHtml(attrs) {
   let html = '';
 
-  Object.keys(props).sort().forEach((key) => {
-    let prop = props[key];
-    if (prop === true) {
+  Object.keys(attrs).sort().forEach((key) => {
+    let attr = attrs[key];
+    if (attr === true) {
       html += ` ${key}`;
     } else {
-      prop = escapeHtml(String(prop));
-      html += ` ${key}="${prop}"`;
+      attr = escapeHtml(String(attr));
+      html += ` ${key}="${attr}"`;
     }
   });
 
@@ -70,9 +70,9 @@ function normalizeOptions(options) {
 
 function selectHtml(settings) {
   const localSettings = Object.assign({
-    props: {},
+    attrs: {},
   }, settings);
-  const { props } = localSettings;
+  const { attrs } = localSettings;
   let {
     options,
     selectedValue,
@@ -80,7 +80,7 @@ function selectHtml(settings) {
     disabledValue,
     disabledText,
   } = localSettings;
-  let html = `<select${getPropsHtml(props)}>`;
+  let html = `<select${getAttrsHtml(attrs)}>`;
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
