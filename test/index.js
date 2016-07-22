@@ -57,14 +57,15 @@ describe('Basic options html', () => {
       selectHtml({
         options: {
           foo: 'Foo',
-          bar: 'Bar'
+          bar: 'Bar',
         },
       });
     };
     assert.throws(fn1, TypeError);
   });
 
-  it('should return the expected html string when `settings.options` is an array of objects', () => {
+  it(`should return the expected html string when \`settings.options\` is
+    an array of objects`, () => {
     const html = selectHtml({
       props: {
         name: 'num',
@@ -74,8 +75,8 @@ describe('Basic options html', () => {
         text: 'Foo',
       }, {
         value: 'bar',
-        text: 'Bar'
-      }]
+        text: 'Bar',
+      }],
     });
     let expectedHtml = `<select name="num">
       <option value="foo">Foo</option>
@@ -94,7 +95,7 @@ describe('Basic options html', () => {
       },
       options: [
         ['foo', 'Foo'],
-        ['bar', 'Bar']
+        ['bar', 'Bar'],
       ],
     });
     let expectedHtml = `<select name="num">
@@ -274,7 +275,8 @@ describe('Basic options html', () => {
     assert.equal(expectedHtml, html);
   });
 
-  it('should return the selected option when `settings.selectedValue` is a string or number', () => {
+  it(`should return the selected option when \`settings.selectedValue\` is a string
+    or number`, () => {
     const html1 = selectHtml({
       props: {
         name: 'num',
@@ -294,7 +296,7 @@ describe('Basic options html', () => {
       <option value="1" selected>1</option>
       <option value="2">2</option>
     </select>`;
-    let expectedHtml2;
+    let expectedHtml2 = '';
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml1;

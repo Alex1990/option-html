@@ -115,7 +115,7 @@ function getNormalizedValue(value) {
   if ((0, _util.isFunction)(value)) {
     newValue = value().map(function (v) {
       return String(v);
-    });;
+    });
   } else if ((0, _util.isArray)(value)) {
     newValue = value.map(function (v) {
       return String(v);

@@ -4,9 +4,9 @@
   "description": "Generate select and options html",
   "main": "lib/select-html.js",
   "scripts": {
-    "build": "rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
+    "build": "npm run compile && rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
     "bundle": "browserify src/select-html.js -t [ babelify ] -d | exorcist dist/select-html.js.map > dist/select-html.js",
-    "compile": "rimraf lib && babel src -d lib",
+    "compile": "npm run test && rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
     "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register",

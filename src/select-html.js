@@ -26,7 +26,7 @@ function getNormalizedValue(value) {
   let newValue = [];
 
   if (isFunction(value)) {
-    newValue = value().map((v) => String(v));;
+    newValue = value().map((v) => String(v));
   } else if (isArray(value)) {
     newValue = value.map((v) => String(v));
   } else if (value !== undefined) {
@@ -90,7 +90,7 @@ function selectHtml(settings) {
   options = normalizeOptions(options || []);
 
   for (let i = 0; i < options.length; i++) {
-    let option = options[i];
+    const option = options[i];
 
     html += `<option value="${option.value}"`;
 
