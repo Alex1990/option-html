@@ -24,10 +24,11 @@ function getPropsHtml(props) {
 
 function getNormalizedValue(value) {
   let newValue = [];
+
   if (isFunction(value)) {
-    newValue = value();
+    newValue = value().map((v) => String(v));;
   } else if (isArray(value)) {
-    newValue = value.slice();
+    newValue = value.map((v) => String(v));
   } else if (value !== undefined) {
     newValue = [String(value)];
   }
@@ -49,10 +50,8 @@ function normalizeOptions(options) {
       for (let i = 0; i < options.length; i++) {
         const pair = options[i];
         list.push({
-          value: pair[0],
-          text: pair[1],
-          selected: false,
-          disabled: false,
+          value: String(pair[0]),
+          text: String(pair[1]),
         });
       }
     } else {
@@ -61,8 +60,6 @@ function normalizeOptions(options) {
         list.push({
           value: v,
           text: v,
-          selected: false,
-          disabled: false,
         });
       }
     }
@@ -75,22 +72,18 @@ function selectHtml(settings) {
   const localSettings = Object.assign({
     props: {},
   }, settings);
-  const { props, transform } = localSettings;
+  const { props } = localSettings;
   let {
     options,
-    defaultValue,
-    defaultText,
+    selectedValue,
+    selectedText,
     disabledValue,
     disabledText,
   } = localSettings;
-  let html = '';
+  let html = `<select${getPropsHtml(props)}>`;
 
-  html += '<select';
-  html += getPropsHtml(props);
-  html += '>';
-
-  defaultValue = getNormalizedValue(defaultValue);
-  defaultText = getNormalizedValue(defaultText);
+  selectedValue = getNormalizedValue(selectedValue);
+  selectedText = getNormalizedValue(selectedText);
   disabledValue = getNormalizedValue(disabledValue);
   disabledText = getNormalizedValue(disabledText);
 
@@ -99,14 +92,10 @@ function selectHtml(settings) {
   for (let i = 0; i < options.length; i++) {
     let option = options[i];
 
-    if (isFunction(transform)) {
-      option = transform(option);
-    }
-
     html += `<option value="${option.value}"`;
 
-    if (includes(defaultValue, option.value) ||
-        includes(defaultText, option.text)) {
+    if (includes(selectedValue, option.value) ||
+        includes(selectedText, option.text)) {
       html += ' selected';
     }
 
