@@ -6,22 +6,6 @@ import {
   includes,
 } from './util';
 
-function getAttrsHtml(attrs) {
-  let html = '';
-
-  Object.keys(attrs).sort().forEach((key) => {
-    let attr = attrs[key];
-    if (attr === true) {
-      html += ` ${key}`;
-    } else {
-      attr = escapeHtml(String(attr));
-      html += ` ${key}="${attr}"`;
-    }
-  });
-
-  return html;
-}
-
 function getNormalizedValue(value) {
   let newValue = [];
 
@@ -68,31 +52,22 @@ function normalizeOptions(options) {
   return list;
 }
 
-function selectHtml(settings) {
-  const localSettings = Object.assign({
-    attrs: {},
-  }, settings);
-  const { attrs } = localSettings;
-  let {
-    options,
-    selectedValue,
-    selectedText,
-    disabledValue,
-    disabledText,
-  } = localSettings;
-  let html = `<select${getAttrsHtml(attrs)}>`;
+function optionHtml(settings) {
+  let { options } = settings;
+  let { selectedValue, selectedText, disabledValue, disabledText } = settings;
+  let html = '';
+
+  options = normalizeOptions(options || []);
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
   disabledValue = getNormalizedValue(disabledValue);
   disabledText = getNormalizedValue(disabledText);
 
-  options = normalizeOptions(options || []);
-
   for (let i = 0; i < options.length; i++) {
     const option = options[i];
 
-    html += `<option value="${option.value}"`;
+    html += `<option value="${escapeHtml(option.value)}"`;
 
     if (includes(selectedValue, option.value) ||
         includes(selectedText, option.text)) {
@@ -104,12 +79,10 @@ function selectHtml(settings) {
       html += ' disabled';
     }
 
-    html += `>${option.text}</option>`;
+    html += `>${escapeHtml(option.text)}</option>`;
   }
-
-  html += '</select>';
 
   return html;
 }
 
-export default selectHtml;
+export default optionHtml;

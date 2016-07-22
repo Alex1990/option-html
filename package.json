@@ -1,20 +1,20 @@
 {
-  "name": "select-html",
+  "name": "option-html",
   "version": "0.1.0",
-  "description": "Generate select and options html",
-  "main": "lib/select-html.js",
+  "description": "Generate the <option>s html string",
+  "main": "lib/option-html.js",
   "scripts": {
     "build": "npm run compile && rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
-    "bundle": "browserify src/select-html.js -t [ babelify ] -d | exorcist dist/select-html.js.map > dist/select-html.js",
+    "bundle": "browserify src/option-html.js -t [ babelify ] -d | exorcist dist/option-html.js.map > dist/option-html.js",
     "compile": "npm run test && rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
     "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register",
-    "uglify": "uglifyjs dist/select-html.js --compress --mangle --output dist/select-html.min.js --source-map dist/select-html.min.js.map --in-source-map dist/select-html.js.map"
+    "uglify": "uglifyjs dist/option-html.js --compress --mangle --output dist/option-html.min.js --source-map dist/option-html.min.js.map --in-source-map dist/option-html.js.map"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Alex1990/select-html.git"
+    "url": "git+ssh://git@github.com/Alex1990/option-html.git"
   },
   "keywords": [
     "select",

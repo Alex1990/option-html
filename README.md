@@ -1,34 +1,28 @@
-# select-html
+# option-html
 
-Generate the `<select>` and `<options>`s html string.
+Generate the <option>s html string.
 
 ## Installation
 
 ```shell
-npm install select-html
+npm install option-html
 ```
 
 ## Usage
 
-It is easy to use the `select-html`.
+It is easy to use the `option-html`.
 
 ```js
-import selectHtml from 'select-html';
-const html = selectHtml(settings); // The `settings` is a configurable object
+import optionHtml from 'option-html';
+const html = optionHtml(settings); // The `settings` is a configurable object
 ```
 
 You can see the below example:
 
 ```js
-import selectHtml from 'select-html';
+import optionHtml from 'option-html';
 
-const html = selectHtml({
-  // Set the attributes of the <select> element
-  attrs: {
-    id: 'language',
-    name: 'language',
-    className: 'form-control'
-  },
+const html = optionHtml({
   // Set the selected option
   selectedValue: 'JavaScript',
   // Set the disabled option
@@ -51,15 +45,6 @@ const html = selectHtml({
 For more details, you can see the **Settings** section.
 
 ### Settings
-
-- **attrs**
-
-  Type: `Object`
-
-  The `attrs` is to set the attributes of the `<select>` element. The sort of 
-  the attributes is alphabetic. If the attribute is a 
-  [boolean attributes](https://www.w3.org/TR/html5/infrastructure.html#boolean-attributes),
-  it will be generated when its value is `true` and it won't be generated when its value is `false`.
 
 - **options**
 

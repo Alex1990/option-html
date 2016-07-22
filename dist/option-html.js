@@ -93,22 +93,6 @@ var _util = require('./util');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getAttrsHtml(attrs) {
-  var html = '';
-
-  Object.keys(attrs).sort().forEach(function (key) {
-    var attr = attrs[key];
-    if (attr === true) {
-      html += ' ' + key;
-    } else {
-      attr = (0, _escapeHtml2.default)(String(attr));
-      html += ' ' + key + '="' + attr + '"';
-    }
-  });
-
-  return html;
-}
-
 function getNormalizedValue(value) {
   var newValue = [];
 
@@ -159,30 +143,26 @@ function normalizeOptions(options) {
   return list;
 }
 
-function selectHtml(settings) {
-  var localSettings = Object.assign({
-    attrs: {}
-  }, settings);
-  var attrs = localSettings.attrs;
-  var options = localSettings.options;
-  var selectedValue = localSettings.selectedValue;
-  var selectedText = localSettings.selectedText;
-  var disabledValue = localSettings.disabledValue;
-  var disabledText = localSettings.disabledText;
+function optionHtml(settings) {
+  var options = settings.options;
+  var selectedValue = settings.selectedValue;
+  var selectedText = settings.selectedText;
+  var disabledValue = settings.disabledValue;
+  var disabledText = settings.disabledText;
 
-  var html = '<select' + getAttrsHtml(attrs) + '>';
+  var html = '';
+
+  options = normalizeOptions(options || []);
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
   disabledValue = getNormalizedValue(disabledValue);
   disabledText = getNormalizedValue(disabledText);
 
-  options = normalizeOptions(options || []);
-
   for (var i = 0; i < options.length; i++) {
     var option = options[i];
 
-    html += '<option value="' + option.value + '"';
+    html += '<option value="' + (0, _escapeHtml2.default)(option.value) + '"';
 
     if ((0, _util.includes)(selectedValue, option.value) || (0, _util.includes)(selectedText, option.text)) {
       html += ' selected';
@@ -192,15 +172,13 @@ function selectHtml(settings) {
       html += ' disabled';
     }
 
-    html += '>' + option.text + '</option>';
+    html += '>' + (0, _escapeHtml2.default)(option.text) + '</option>';
   }
-
-  html += '</select>';
 
   return html;
 }
 
-exports.default = selectHtml;
+exports.default = optionHtml;
 
 },{"./util":3,"escape-html":1}],3:[function(require,module,exports){
 'use strict';
@@ -230,4 +208,4 @@ exports.isFunction = isFunction;
 exports.includes = includes;
 
 },{}]},{},[2])
-//# sourceMappingURL=select-html.js.map
+//# sourceMappingURL=option-html.js.map
