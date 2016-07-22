@@ -2,12 +2,15 @@
   "name": "select-html",
   "version": "0.1.0",
   "description": "Generate select and options html",
-  "main": "dist/select-html.js",
+  "main": "lib/select-html.js",
   "scripts": {
-    "compile": "babel src -d lib",
+    "build": "rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
+    "bundle": "browserify src/select-html.js -t [ babelify ] -d | exorcist dist/select-html.js.map > dist/select-html.js",
+    "compile": "rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
     "lint": "eslint .",
-    "test": "npm run lint && mocha --compilers js:babel-core/register"
+    "test": "npm run lint && mocha --compilers js:babel-core/register",
+    "uglify": "uglifyjs dist/select-html.js --compress --mangle --output dist/select-html.min.js --source-map dist/select-html.min.js.map --in-source-map dist/select-html.js.map"
   },
   "repository": {
     "type": "git",
@@ -24,12 +27,18 @@
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^4.0.2",
     "eslint-plugin-import": "^1.11.1",
+    "exorcist": "^0.4.0",
     "istanbul": "^1.0.0-alpha.2",
-    "mocha": "^2.5.3"
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.3",
+    "uglify-js": "^2.7.0"
   },
   "dependencies": {
     "escape-html": "^1.0.3"
