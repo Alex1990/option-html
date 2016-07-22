@@ -14,7 +14,14 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
+  });
+
+  it('should return an empty string when `settings.options` is an empty array', () => {
+    const html = optionHtml({
+      options: [],
+    });
+    assert.strictEqual('', html);
   });
 
   it('should throw a TypeError when `settings.options` is not an array', () => {
@@ -46,7 +53,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
   });
 
   it(`should return the expected html string when \`settings.options\` is an array of
@@ -63,7 +70,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
   });
 
   it('should return the selected option html string by `settings.selectedValue`', () => {
@@ -88,8 +95,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml1, html1);
-    assert.equal(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
   });
 
   it('should return the selected option html string by `settings.selectedText`', () => {
@@ -114,8 +121,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml1, html1);
-    assert.equal(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
   });
 
   it('should return the disabled option html string by `settings.disabledValue`', () => {
@@ -140,8 +147,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml1, html1);
-    assert.equal(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
   });
 
   it('should return the disabled option html string by `settings.disabledText`', () => {
@@ -166,8 +173,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml1, html1);
-    assert.equal(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
   });
 
   it(`should return the selected and disabled option html string by \`settings.selectedValue\`
@@ -184,7 +191,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
   });
 
   it(`should return the selected and disabled option html string by \`settings.selectedText\`
@@ -201,7 +208,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
   });
 
   it(`should return the selected option when \`settings.selectedValue\` is a string
@@ -223,8 +230,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml1;
-    assert.equal(expectedHtml1, html1);
-    assert.equal(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
   });
 
   it('should return the selected option when `settings.selectedValue` is a function', () => {
@@ -241,7 +248,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.equal(expectedHtml, html);
+    assert.strictEqual(expectedHtml, html);
   });
 });
 

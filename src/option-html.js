@@ -57,7 +57,7 @@ function optionHtml(settings) {
   let { selectedValue, selectedText, disabledValue, disabledText } = settings;
   let html = '';
 
-  options = normalizeOptions(options || []);
+  options = normalizeOptions(options);
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);

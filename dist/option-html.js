@@ -152,7 +152,7 @@ function optionHtml(settings) {
 
   var html = '';
 
-  options = normalizeOptions(options || []);
+  options = normalizeOptions(options);
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
@@ -192,7 +192,6 @@ function isType(typeName) {
   };
 }
 
-var isString = isType('String');
 var isObject = isType('Object');
 var isArray = isType('Array');
 var isFunction = isType('Function');
@@ -201,7 +200,6 @@ function includes(array, value) {
   return array.indexOf(value) > -1;
 }
 
-exports.isString = isString;
 exports.isObject = isObject;
 exports.isArray = isArray;
 exports.isFunction = isFunction;
