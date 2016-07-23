@@ -1,6 +1,6 @@
 {
   "name": "option-html",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate the <option>s html string",
   "main": "lib/option-html.js",
   "scripts": {
