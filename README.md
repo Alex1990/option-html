@@ -45,7 +45,7 @@ const html = optionHtml({
 });
 ```
 
-For more details, you can see the **Settings** section.
+For more details, you can see the [Settings](#settings) section.
 
 ### Settings
 
