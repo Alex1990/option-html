@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/Alex1990/option-html/badge.svg?branch=master)](https://coveralls.io/github/Alex1990/option-html?branch=master)
 [![Build Status](https://travis-ci.org/Alex1990/option-html.svg?branch=master)](https://travis-ci.org/Alex1990/option-html)
 
 # option-html
