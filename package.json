@@ -8,6 +8,7 @@
     "bundle": "browserify src/option-html.js -t [ babelify ] -d | exorcist dist/option-html.js.map > dist/option-html.js",
     "compile": "npm run test && rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
+    "coveralls": "npm run cover && cat coverage/lcov.info | coveralls",
     "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register",
     "uglify": "uglifyjs dist/option-html.js --compress --mangle --output dist/option-html.min.js --source-map dist/option-html.min.js.map --in-source-map dist/option-html.js.map"
@@ -30,6 +31,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.11",
     "eslint": "^3.1.1",
     "eslint-config-airbnb-base": "^4.0.2",
     "eslint-plugin-import": "^1.11.1",
