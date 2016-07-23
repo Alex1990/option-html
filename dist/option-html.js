@@ -197,7 +197,13 @@ var isArray = isType('Array');
 var isFunction = isType('Function');
 
 function includes(array, value) {
-  return array.indexOf(value) > -1;
+  var ret = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      ret = true;
+    }
+  }
+  return ret;
 }
 
 exports.isObject = isObject;

@@ -9,7 +9,13 @@ const isArray = isType('Array');
 const isFunction = isType('Function');
 
 function includes(array, value) {
-  return array.indexOf(value) > -1;
+  let ret = false;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      ret = true;
+    }
+  }
+  return ret;
 }
 
 export {
