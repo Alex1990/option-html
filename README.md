@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Alex1990/option-html.svg?branch=master)](https://travis-ci.org/Alex1990/option-html)
+
 # option-html
 
 Generate the <option>s html string.
