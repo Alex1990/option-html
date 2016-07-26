@@ -47,6 +47,18 @@ const html = optionHtml({
 
 For more details, you can see the [Settings](#settings) section.
 
+### API
+
+```js
+import optionHtml from 'option-html';
+
+optionHtml(settings);
+// See the below Settings section for the description about the "settings" parameter
+
+optionHtml(options);
+// Same as optionHtml({ options: options })
+```
+
 ### Settings
 
 - **options**

@@ -144,11 +144,19 @@ function normalizeOptions(options) {
 }
 
 function optionHtml(settings) {
-  var options = settings.options;
-  var selectedValue = settings.selectedValue;
-  var selectedText = settings.selectedText;
-  var disabledValue = settings.disabledValue;
-  var disabledText = settings.disabledText;
+  var localSettings = settings;
+  if ((0, _util.isArray)(settings)) {
+    localSettings = {
+      options: settings
+    };
+  }
+  var _localSettings = localSettings;
+  var options = _localSettings.options;
+  var _localSettings2 = localSettings;
+  var selectedValue = _localSettings2.selectedValue;
+  var selectedText = _localSettings2.selectedText;
+  var disabledValue = _localSettings2.disabledValue;
+  var disabledText = _localSettings2.disabledText;
 
   var html = '';
 

@@ -53,8 +53,14 @@ function normalizeOptions(options) {
 }
 
 function optionHtml(settings) {
-  let { options } = settings;
-  let { selectedValue, selectedText, disabledValue, disabledText } = settings;
+  let localSettings = settings;
+  if (isArray(settings)) {
+    localSettings = {
+      options: settings,
+    };
+  }
+  let { options } = localSettings;
+  let { selectedValue, selectedText, disabledValue, disabledText } = localSettings;
   let html = '';
 
   options = normalizeOptions(options);

@@ -17,6 +17,18 @@ describe('Basic options html', () => {
     assert.strictEqual(expectedHtml, html);
   });
 
+  it('should return the expected html string when the settings is an array', () => {
+    const html = optionHtml([0, 1, 2]);
+    let expectedHtml = `
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    `;
+
+    expectedHtml = expectedHtml.replace(/\n\s*/g, '');
+    assert.strictEqual(expectedHtml, html);
+  });
+
   it('should return an empty string when `settings.options` is an empty array', () => {
     const html = optionHtml({
       options: [],
