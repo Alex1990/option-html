@@ -8,7 +8,7 @@
     "bundle": "browserify src/index.js -t [ babelify ] -d | exorcist dist/option-html.js.map > dist/option-html.js",
     "compile": "npm run test && rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- --compilers js:babel-core/register -R spec && cat coverage/lcov.info | coveralls",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- --compilers js:babel-core/register -R spec && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register",
     "uglify": "uglifyjs dist/option-html.js --compress --mangle --output dist/option-html.min.js --source-map dist/option-html.min.js.map --in-source-map dist/option-html.js.map"
