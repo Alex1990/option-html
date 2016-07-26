@@ -2,10 +2,10 @@
   "name": "option-html",
   "version": "0.1.2",
   "description": "Generate the <option>s html string",
-  "main": "lib/option-html.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run compile && rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
-    "bundle": "browserify src/option-html.js -t [ babelify ] -d | exorcist dist/option-html.js.map > dist/option-html.js",
+    "bundle": "browserify src/index.js -t [ babelify ] -d | exorcist dist/option-html.js.map > dist/option-html.js",
     "compile": "npm run test && rimraf lib && babel src -d lib",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register -R spec",
     "coveralls": "npm run cover && cat coverage/lcov.info | coveralls",

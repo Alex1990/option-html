@@ -3,7 +3,7 @@
   "sources": [
     "node_modules/browser-pack/_prelude.js",
     "node_modules/escape-html/index.js",
-    "src/option-html.js",
+    "src/index.js",
     "src/util.js"
   ],
   "names": [],
