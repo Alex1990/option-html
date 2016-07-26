@@ -1,6 +1,6 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import { assert } from 'chai';
-import optionHtml from '../src';
+import optionHtml from '../src/index';
 
 describe('Basic options html', () => {
   it('should return the expected html string', () => {
