@@ -5,6 +5,11 @@
 
 Generate the `<option>`s html string.
 
+- [Installation](https://github.com/Alex1990/option-html#installation)
+- [Usage](https://github.com/Alex1990/option-html#usage)
+- [Examples](https://github.com/Alex1990/option-html#examples)
+- [API](https://github.com/Alex1990/option-html#api)
+
 ## Installation
 
 ```shell
@@ -19,11 +24,12 @@ It is easy to use the `option-html`.
 import optionHtml from 'option-html';
 const html = optionHtml(settings); // The `settings` is a configurable object
 ```
+
+## Examples
+
 An basic example:
 
 ```js
-import optionHtml from 'option-html';
-
 const html = optionHtml({
   options: [
     'Java',
