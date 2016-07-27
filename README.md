@@ -79,12 +79,12 @@ optionHtml(settings, replacer, space);
 
   Type: `Number`|`String`
 
-  It's same as the third parameter of the [JSON.stringify()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+  Same as the third parameter of the [JSON.stringify()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), it is used to control spacing in the final string.
 
-  - If this is a Number, it indicates the number of space characters to use as the indention of the each `<option>`.
-  - If this is a String, the string will be as the indention of the each `<option>`.
+  - If this is a Number, it indicates the number of space characters to be used as the indention of the each `<option>`.
+  - If this is a String, the string will be used as the indention of the each `<option>`.
 
-  **Notes, there isn't a limit for the length of the indention.**
+  **Notes, there isn't a limitation for the length of the indention.**
 
 ### Settings
 
