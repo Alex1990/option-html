@@ -4,6 +4,8 @@ function isType(typeName) {
   };
 }
 
+const isNumber = isType('Number');
+const isString = isType('String');
 const isObject = isType('Object');
 const isArray = isType('Array');
 const isFunction = isType('Function');
@@ -19,6 +21,8 @@ function includes(array, value) {
 }
 
 export {
+  isNumber,
+  isString,
   isObject,
   isArray,
   isFunction,

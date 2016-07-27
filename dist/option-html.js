@@ -143,7 +143,7 @@ function normalizeOptions(options) {
   return list;
 }
 
-function optionHtml(settings) {
+function optionHtml(settings, replacer, space) {
   var localSettings = settings;
   if ((0, _util.isArray)(settings)) {
     localSettings = {
@@ -158,29 +158,59 @@ function optionHtml(settings) {
   var disabledValue = _localSettings2.disabledValue;
   var disabledText = _localSettings2.disabledText;
 
+  var htmlList = [];
   var html = '';
-
-  options = normalizeOptions(options);
+  var indent = '';
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
   disabledValue = getNormalizedValue(disabledValue);
   disabledText = getNormalizedValue(disabledText);
 
+  options = normalizeOptions(options);
+
   for (var i = 0; i < options.length; i++) {
     var option = options[i];
-
-    html += '<option value="' + (0, _escapeHtml2.default)(option.value) + '"';
-
     if ((0, _util.includes)(selectedValue, option.value) || (0, _util.includes)(selectedText, option.text)) {
-      html += ' selected';
+      option.selected = true;
+    } else {
+      option.selected = false;
     }
-
     if ((0, _util.includes)(disabledValue, option.value) || (0, _util.includes)(disabledText, option.text)) {
-      html += ' disabled';
+      option.disabled = true;
+    } else {
+      option.disabled = false;
     }
+  }
 
-    html += '>' + (0, _escapeHtml2.default)(option.text) + '</option>';
+  if ((0, _util.isFunction)(replacer)) {
+    for (var _i2 = 0; _i2 < options.length; _i2++) {
+      htmlList[_i2] = replacer(options[_i2], _i2);
+    }
+  } else {
+    for (var _i3 = 0; _i3 < options.length; _i3++) {
+      var _option = options[_i3];
+      var item = '<option value="' + (0, _escapeHtml2.default)(_option.value) + '"';
+
+      item += _option.selected ? ' selected' : '';
+      item += _option.disabled ? ' disabled' : '';
+
+      item += '>' + (0, _escapeHtml2.default)(_option.text) + '</option>';
+      htmlList.push(item);
+    }
+  }
+
+  if ((0, _util.isNumber)(space)) {
+    indent = Array(Math.max(0, space || 0) + 1).join(' ');
+  } else if ((0, _util.isString)(space)) {
+    indent = space;
+  }
+
+  if (indent) {
+    html = htmlList.join('\n' + indent);
+    html = '' + indent + html;
+  } else {
+    html = htmlList.join('');
   }
 
   return html;
@@ -200,6 +230,8 @@ function isType(typeName) {
   };
 }
 
+var isNumber = isType('Number');
+var isString = isType('String');
 var isObject = isType('Object');
 var isArray = isType('Array');
 var isFunction = isType('Function');
@@ -214,6 +246,8 @@ function includes(array, value) {
   return ret;
 }
 
+exports.isNumber = isNumber;
+exports.isString = isString;
 exports.isObject = isObject;
 exports.isArray = isArray;
 exports.isFunction = isFunction;

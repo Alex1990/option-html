@@ -264,3 +264,72 @@ describe('Basic options html', () => {
   });
 });
 
+describe('The second parameter: `replacer`', () => {
+  it(`should return an empty string if an emptry string is returned by
+     \`replacer\``, () => {
+    const html = optionHtml({
+      options: [0, 1, 2],
+    }, () => '');
+
+    assert.strictEqual('', html);
+  });
+
+  it(`should pass the option data object and the option index as the
+     arguments of the \`replacer\` function`, () => {
+    optionHtml({
+      selectedValue: [1],
+      options: [0, 1, 2],
+    }, (option, index) => {
+      assert.deepEqual(option, {
+        value: String(index),
+        text: String(index),
+        selected: index === 1,
+        disabled: false,
+      });
+      return '';
+    });
+  });
+});
+
+describe('The third parameter: `space`', () => {
+  it(`should return an string with indention if a String or Number
+     is passed as the third parameter`, () => {
+    const html1 = optionHtml({
+      options: [0, 1, 2],
+    }, null, 2);
+    const html2 = optionHtml({
+      options: [0, 1, 2],
+    }, null, '\t');
+    const html3 = optionHtml({
+      options: [0, 1, 2],
+    }, null, NaN);
+    let expectedHtml1 = `
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    `;
+    let expectedHtml2 = `
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    `;
+    let expectedHtml3 = `
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    `;
+
+    expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '\n  ')
+      .replace(/^\n/, '')
+      .replace(/\n\s*$/, '');
+    expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '\n\t')
+      .replace(/^\n/, '')
+      .replace(/\n\s*$/, '');
+    expectedHtml3 = expectedHtml3.replace(/\n\s*/g, '');
+
+    assert.strictEqual(expectedHtml1, html1);
+    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(expectedHtml3, html3);
+  });
+});
+

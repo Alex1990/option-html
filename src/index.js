@@ -1,5 +1,7 @@
 import escapeHtml from 'escape-html';
 import {
+  isNumber,
+  isString,
   isObject,
   isArray,
   isFunction,
@@ -52,7 +54,7 @@ function normalizeOptions(options) {
   return list;
 }
 
-function optionHtml(settings) {
+function optionHtml(settings, replacer, space) {
   let localSettings = settings;
   if (isArray(settings)) {
     localSettings = {
@@ -61,31 +63,61 @@ function optionHtml(settings) {
   }
   let { options } = localSettings;
   let { selectedValue, selectedText, disabledValue, disabledText } = localSettings;
+  const htmlList = [];
   let html = '';
-
-  options = normalizeOptions(options);
+  let indent = '';
 
   selectedValue = getNormalizedValue(selectedValue);
   selectedText = getNormalizedValue(selectedText);
   disabledValue = getNormalizedValue(disabledValue);
   disabledText = getNormalizedValue(disabledText);
 
+  options = normalizeOptions(options);
+
   for (let i = 0; i < options.length; i++) {
     const option = options[i];
-
-    html += `<option value="${escapeHtml(option.value)}"`;
-
     if (includes(selectedValue, option.value) ||
         includes(selectedText, option.text)) {
-      html += ' selected';
+      option.selected = true;
+    } else {
+      option.selected = false;
     }
-
     if (includes(disabledValue, option.value) ||
         includes(disabledText, option.text)) {
-      html += ' disabled';
+      option.disabled = true;
+    } else {
+      option.disabled = false;
     }
+  }
 
-    html += `>${escapeHtml(option.text)}</option>`;
+  if (isFunction(replacer)) {
+    for (let i = 0; i < options.length; i++) {
+      htmlList[i] = replacer(options[i], i);
+    }
+  } else {
+    for (let i = 0; i < options.length; i++) {
+      const option = options[i];
+      let item = `<option value="${escapeHtml(option.value)}"`;
+
+      item += option.selected ? ' selected' : '';
+      item += option.disabled ? ' disabled' : '';
+
+      item += `>${escapeHtml(option.text)}</option>`;
+      htmlList.push(item);
+    }
+  }
+
+  if (isNumber(space)) {
+    indent = Array(Math.max(0, space || 0) + 1).join(' ');
+  } else if (isString(space)) {
+    indent = space;
+  }
+
+  if (indent) {
+    html = htmlList.join(`\n${indent}`);
+    html = `${indent}${html}`;
+  } else {
+    html = htmlList.join('');
   }
 
   return html;
