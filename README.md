@@ -127,7 +127,7 @@ optionHtml({
 });
 ```
 
-You can customize the `<option>` html string with an function passed as the second parameter.
+You can customize each `<option>` html string with a function passed as the second parameter.
 
 ```js
 optionHtml({
@@ -138,7 +138,7 @@ optionHtml({
   html += option.selected ? ' selected' : '';
   html += option.disabled ? ' disabled' : '';
   html += `>${option.text}</option>`;
-  return htm;
+  return html;
 });
 ```
 
