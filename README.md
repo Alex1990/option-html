@@ -3,7 +3,7 @@
 
 # option-html
 
-Generate the <option>s html string.
+Generate the `<option>`s html string.
 
 ## Installation
 

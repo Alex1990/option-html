@@ -1,7 +1,7 @@
 {
   "name": "option-html",
   "version": "0.2.0",
-  "description": "Generate the <option>s html string",
+  "description": "Generate the options html string",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run compile && rimraf dist && mkdirp dist && npm run bundle && npm run uglify",
