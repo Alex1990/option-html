@@ -14,7 +14,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it('should return the expected html string when the settings is an array', () => {
@@ -26,7 +26,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it('should return an empty string when `settings.options` is an empty array', () => {
@@ -65,7 +65,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it(`should return the expected html string when \`settings.options\` is an array of
@@ -82,7 +82,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it('should return the selected option html string by `settings.selectedValue`', () => {
@@ -107,8 +107,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
   });
 
   it('should return the selected option html string by `settings.selectedText`', () => {
@@ -133,8 +133,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
   });
 
   it('should return the disabled option html string by `settings.disabledValue`', () => {
@@ -159,8 +159,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
   });
 
   it('should return the disabled option html string by `settings.disabledText`', () => {
@@ -185,8 +185,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml2.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
   });
 
   it(`should return the selected and disabled option html string by \`settings.selectedValue\`
@@ -203,7 +203,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it(`should return the selected and disabled option html string by \`settings.selectedText\`
@@ -220,7 +220,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 
   it(`should return the selected option when \`settings.selectedValue\` is a string
@@ -242,8 +242,8 @@ describe('Basic options html', () => {
 
     expectedHtml1 = expectedHtml1.replace(/\n\s*/g, '');
     expectedHtml2 = expectedHtml1;
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
   });
 
   it('should return the selected option when `settings.selectedValue` is a function', () => {
@@ -260,7 +260,7 @@ describe('Basic options html', () => {
     `;
 
     expectedHtml = expectedHtml.replace(/\n\s*/g, '');
-    assert.strictEqual(expectedHtml, html);
+    assert.strictEqual(html, expectedHtml);
   });
 });
 
@@ -327,9 +327,9 @@ describe('The third parameter: `space`', () => {
       .replace(/\n\s*$/, '');
     expectedHtml3 = expectedHtml3.replace(/\n\s*/g, '');
 
-    assert.strictEqual(expectedHtml1, html1);
-    assert.strictEqual(expectedHtml2, html2);
-    assert.strictEqual(expectedHtml3, html3);
+    assert.strictEqual(html1, expectedHtml1);
+    assert.strictEqual(html2, expectedHtml2);
+    assert.strictEqual(html3, expectedHtml3);
   });
 });
 
