@@ -57,7 +57,34 @@ optionHtml(settings);
 
 optionHtml(options);
 // Same as optionHtml({ options: options })
+
+optionHtml(settings, replacer, space);
+// With the second and third parameters
 ```
+
+- **replacer**
+
+  Type: `Function`
+
+  An "option data object" and "option index" will be passed as arguments. An string must be returned. The "option data object" is an plain object with four properties which is used to generate the option string:
+
+  - value: An string;
+  - text: An string;
+  - selected: `true` or `false;
+  - disabled: `true` or `false;
+
+  The "option index" is a number.
+
+- **space**
+
+  Type: `Number`|`String`
+
+  It's same as the third parameter of the [JSON.stringify()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+
+  - If this is a Number, it indicates the number of space characters to use as the indention of the each `<option>`.
+  - If this is a String, the string will be as the indention of the each `<option>`.
+
+  **Notes, there isn't a limit for the length of the indention.**
 
 ### Settings
 
